@@ -2,7 +2,7 @@
 
 An interactive web application that allows users to explore the classic Chinese historical text, *Zizhi Tongjian* (资治通鉴). Users can chat with historical figures from each chapter and view AI-generated comic strips that vividly illustrate key scenes.
 
-![Application Screenshot](./screenshot.png)
+![Application Screenshot](./image.png)
 
 ---
 
