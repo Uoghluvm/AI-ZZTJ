@@ -22,3 +22,8 @@ export interface Message {
   text: string;
   isThinking?: boolean;
 }
+
+export interface VolumeGroup {
+  dynasty: string;
+  chapters: Chapter[];
+}

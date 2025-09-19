@@ -1,16 +1,15 @@
-
 import React, { useState, useMemo } from 'react';
 import { ChapterList } from './components/ChapterList';
 import { ChatView } from './components/ChatView';
 import { ComicView } from './components/ComicView';
 import { Header } from './components/Header';
-import { CHAPTERS } from './constants';
+import { ZIZHI_TONGJIAN_VOLUMES } from './constants';
 import type { Chapter } from './types';
 import { ViewType } from './types';
 
 
 function App() {
-  const [selectedChapter, setSelectedChapter] = useState<Chapter>(CHAPTERS[0]);
+  const [selectedChapter, setSelectedChapter] = useState<Chapter>(ZIZHI_TONGJIAN_VOLUMES[0].chapters[0]);
   const [activeView, setActiveView] = useState<ViewType>(ViewType.CHAT);
 
   const handleSelectChapter = (chapter: Chapter) => {
@@ -26,6 +25,14 @@ function App() {
         </div>
       );
     }
+    
+    if (selectedChapter.characters.length === 0 && selectedChapter.comicPrompt === '') {
+       return (
+        <div className="flex items-center justify-center h-full text-gray-500 p-8 text-center">
+          <p>此章节内容正在撰写中，请先浏览其他已完成的章节。</p>
+        </div>
+      );
+    }
 
     switch (activeView) {
       case ViewType.CHAT:
@@ -38,12 +45,12 @@ function App() {
   }, [activeView, selectedChapter]);
 
   return (
-    <div className="min-h-screen bg-stone-100 text-stone-800 flex flex-col">
+    <div className="h-screen bg-stone-100 text-stone-800 flex flex-col">
       <Header />
       <main className="flex-grow flex flex-col md:flex-row container mx-auto p-4 gap-4 overflow-hidden">
         <aside className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0">
           <ChapterList
-            chapters={CHAPTERS}
+            volumeGroups={ZIZHI_TONGJIAN_VOLUMES}
             selectedChapter={selectedChapter}
             onSelectChapter={handleSelectChapter}
           />
