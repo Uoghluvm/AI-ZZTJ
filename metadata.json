@@ -1,0 +1,5 @@
+{
+  "name": "Zizhi Tongjian AI Guide",
+  "description": "An interactive web application that allows users to explore the Chinese historical text 'Zizhi Tongjian'. Users can chat with historical figures from each chapter and view AI-generated comic strips that vividly illustrate key scenes.",
+  "requestFramePermissions": []
+}
